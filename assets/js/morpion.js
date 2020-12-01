@@ -1,6 +1,4 @@
 $(function () {
-  var cross = `<i class="fa fa-times"></i>`;
-  var circle = `<i class="fa fa-circle"></i>`;
   const id1 = $("#1");
   const id2 = $("#2");
   const id3 = $("#3");
@@ -10,7 +8,72 @@ $(function () {
   const id7 = $("#7");
   const id8 = $("#8");
   const id9 = $("#9");
+  const circle = $(".circle").html();
+  const cross = $(".cross").html();
+  var playerOne = {
+    icon: circle,
+    name: "Joueur 1",
+  };
+  var playerTwo = {
+    icon: cross,
+    name: "Joueur 2",
+  };
   var turn = 0;
+
+  // JOUEUR 1
+
+  $(document).on("click", "#circle1", function () {
+    playerOne.icon = $(this).html();
+  })
+
+  $(document).on("click", "#cross1", function () {
+    playerOne.icon = $(this).html();
+  })
+
+  $(document).on("click", "#laugh1", function () {
+    playerOne.icon = $(this).html();
+  })
+
+  $(document).on("click", "#surprise1", function () {
+    playerOne.icon = $(this).html();
+  })
+
+  $(document).on("click", "#first-player-submit", function () {
+    if ($("#first-player-name").val() != "") {
+      playerOne.name = $("#first-player-name").val();
+    }
+    $("#first-player-form").attr("hidden", "");
+  })
+
+  //  JOUEUR 2
+
+  $(document).on("click", "#circle2", function () {
+    playerTwo.icon = $(this).html();
+  })
+
+  $(document).on("click", "#cross2", function () {
+    playerTwo.icon = $(this).html();
+  })
+
+  $(document).on("click", "#laugh2", function () {
+    playerTwo.icon = $(this).html();
+  })
+
+  $(document).on("click", "#surprise2", function () {
+    playerTwo.icon = $(this).html();
+  })
+
+  $(document).on("click", "#second-player-submit", function () {
+    if ($("#second-player-name").val() != "") {
+      playerTwo.name = $("#second-player-name").val();
+    }
+    $("#second-player-form").attr("hidden", "");
+  })
+
+  $(document).on("click", "#begin", function () {
+    $(this).attr("hidden", "");
+    $("#game").removeAttr("hidden");
+  })
 
   function winning() {
     // combinaisons horizontales
@@ -88,25 +151,34 @@ $(function () {
     id9.html("");
   }
 
+  function newTurn (name) {
+    $("#turn").empty();
+    $("#turn").append(`${name}, à toi de jouer !`);
+  }
+
   $(document).on("click", "#1", function () {
     if ($(this).html() == "") {
       if (turn % 2 == 0) {
-        $(this).append(cross);
+        $(this).append(playerOne.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerTwo.name);
         
       } else {
-        $(this).append(circle);
+        $(this).append(playerTwo.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerOne.name);
       }
     }
   });
@@ -114,21 +186,25 @@ $(function () {
   $(document).on("click", "#2", function () {
     if ($(this).html() == "") {
       if (turn % 2 == 0) {
-        $(this).append(cross);
+        $(this).append(playerOne.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerTwo.name);
       } else {
-        $(this).append(circle);
+        $(this).append(playerTwo.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerOne.name);
       }
     }
   });
@@ -136,21 +212,25 @@ $(function () {
   $(document).on("click", "#3", function () {
     if ($(this).html() == "") {
       if (turn % 2 == 0) {
-        $(this).append(cross);
+        $(this).append(playerOne.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerTwo.name);
       } else {
-        $(this).append(circle);
+        $(this).append(playerTwo.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerOne.name);
       }
     }
   });
@@ -158,21 +238,25 @@ $(function () {
   $(document).on("click", "#4", function () {
     if ($(this).html() == "") {
       if (turn % 2 == 0) {
-        $(this).append(cross);
+        $(this).append(playerOne.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerTwo.name);
       } else {
-        $(this).append(circle);
+        $(this).append(playerTwo.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerOne.name);
       }
     }
   });
@@ -180,21 +264,25 @@ $(function () {
   $(document).on("click", "#5", function () {
     if ($(this).html() == "") {
       if (turn % 2 == 0) {
-        $(this).append(cross);
+        $(this).append(playerOne.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerTwo.name);
       } else {
-        $(this).append(circle);
+        $(this).append(playerTwo.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerOne.name);
       }
     }
   });
@@ -202,21 +290,25 @@ $(function () {
   $(document).on("click", "#6", function () {
     if ($(this).html() == "") {
       if (turn % 2 == 0) {
-        $(this).append(cross);
+        $(this).append(playerOne.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerTwo.name);
       } else {
-        $(this).append(circle);
+        $(this).append(playerTwo.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerOne.name);
       }
     }
   });
@@ -224,21 +316,25 @@ $(function () {
   $(document).on("click", "#7", function () {
     if ($(this).html() == "") {
       if (turn % 2 == 0) {
-        $(this).append(cross);
+        $(this).append(playerOne.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerTwo.name);
       } else {
-        $(this).append(circle);
+        $(this).append(playerTwo.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerOne.name);
       }
     }
   });
@@ -246,21 +342,25 @@ $(function () {
   $(document).on("click", "#8", function () {
     if ($(this).html() == "") {
       if (turn % 2 == 0) {
-        $(this).append(cross);
+        $(this).append(playerOne.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerTwo.name);
       } else {
-        $(this).append(circle);
+        $(this).append(playerTwo.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerOne.name);
       }
     }
   });
@@ -268,21 +368,25 @@ $(function () {
   $(document).on("click", "#9", function () {
     if ($(this).html() == "") {
       if (turn % 2 == 0) {
-        $(this).append(cross);
+        $(this).append(playerOne.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerTwo.name);
       } else {
-        $(this).append(circle);
+        $(this).append(playerTwo.icon);
         turn++;
         setTimeout(function(){
             if (winning() == "victory") {
-                alert('partie terminée');
+                alert('Partie terminée');
+                window.location.reload();
             }
         }, 100);
+        newTurn(playerOne.name);
       }
     }
   });
