@@ -1,0 +1,10 @@
+table,
+tr,
+td {
+    width: 10rem;
+    height: 10rem;
+    font-size: 5rem;
+    text-align: center;
+    border: 2px solid orange;
+    border-right: 2px solid orange;
+}
