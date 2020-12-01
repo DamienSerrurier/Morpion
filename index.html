@@ -1,56 +1,84 @@
 <!doctype html>
 <html lang="fr">
 
-<head>
-  <title>Morpion</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    
+    <div class="container mt-3">
+      <div class="row">
+        <form id="first-player-form" class="col-12 col-md-6">
+          <div class="form-group">
+            <label for="first-player-name">Nom du joueur 1</label>
+            <input type="text" class="form-control" id="first-player-name" placeholder="Jean-Mauricien">
+          </div>
+          <div class="form-group">
+            <label>Icône du joueur 1</label>
+            <div class="btn-toolbar mb-3" role="toolbar">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button id="circle1" type="button" class="btn btn-lg btn-secondary circle"><i class="far fa-circle"></i></button>
+                <button id="cross1" type="button" class="btn btn-lg btn-secondary cross"><i class="fas fa-times"></i></button>
+                <button id="laugh1" type="button" class="btn btn-lg btn-secondary laugh"><i class="far fa-laugh-beam"></i></button>
+                <button id="surprise1" type="button" class="btn btn-lg btn-secondary surprise"><i class="far fa-surprise"></i></button>
+              </div>
+            </div>
+          </div>
+          <button id="first-player-submit" type="button" class="btn btn-primary mb-2">Confirmer</button>
+        </form>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
+        <form id="second-player-form" class="col-12 col-md-6">
+          <div class="form-group">
+            <label for="second-player-name">Nom du joueur 2</label>
+            <input type="text" class="form-control" id="second-player-name" placeholder="Yvon-Jacky">
+          </div>
+          <div class="form-group">
+            <label>Icône du joueur 2</label>
+            <div class="btn-toolbar mb-3" role="toolbar">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button id="circle2" type="button" class="btn btn-lg btn-secondary circle"><i class="far fa-circle"></i></button>
+                <button id="cross2" type="button" class="btn btn-lg btn-secondary cross"><i class="fas fa-times"></i></button>
+                <button id="laugh2" type="button" class="btn btn-lg btn-secondary laugh"><i class="far fa-laugh-beam"></i></button>
+                <button id="surprise2" type="button" class="btn btn-lg btn-secondary surprise"><i class="far fa-surprise"></i></button>
+              </div>
+            </div>
+          </div>
+          <button id="second-player-submit" type="button" class="btn btn-primary mb-2">Confirmer</button>
+        </form>
+      </div>
 
-<body>
+      <button id="begin" class="btn btn-success">Commencer partie</button>
 
-  <div class="container mt-3">
-    <table class="table">
-      <tbody>
-        <tr>
-          <td id="1" class="col-3"></td>
-          <td id="2" class="col-3"></td>
-          <td id="3" class="col-3"></td>
-        </tr>
-        <tr>
-          <td id="4" class="col-3"></td>
-          <td id="5" class="col-3"></td>
-          <td id="6" class="col-3"></td>
-        </tr>
-        <tr>
-          <td id="7" class="col-3"></td>
-          <td id="8" class="col-3"></td>
-          <td id="9" class="col-3"></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-  <script src="assets/js/morpion.js"></script>
-</body>
-
+      <div id="turn"></div>
+      
+      <table id="game" class="table" hidden>
+        <tbody>
+          <tr>
+            <td id="1"></td>
+            <td id="2"></td>
+            <td id="3"></td>
+          </tr>
+          <tr>
+            <td id="4"></td>
+            <td id="5"></td>
+            <td id="6"></td>
+          </tr>
+          <tr>
+            <td id="7"></td>
+            <td id="8"></td>
+            <td id="9"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="assets/js/morpion.js"></script>
+  </body>
 </html>
